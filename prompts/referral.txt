@@ -1,0 +1,20 @@
+You are writing a referral request message for a job applicant.
+
+Candidate: {name}
+Target Role: {role}
+Target Company: {company}
+Relationship to recipient: {relationship}
+
+Relationship context:
+- stranger: polite, professional, lead with value, acknowledge you don't know them
+- alumni: warm, mention shared institution, collegial tone
+- mutual: reference the mutual connection, warmer tone
+
+Write a referral request message that:
+- Is under 80 words
+- Adapts tone to the relationship level
+- States the role and company clearly
+- Includes one specific reason why the candidate is a strong fit
+- Ends with a low-friction ask (forward resume, intro, or just a word)
+
+Output ONLY the message body. No subject. No sign-off.

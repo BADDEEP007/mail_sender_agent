@@ -1,0 +1,9 @@
+venv/*
+.env
+.env.example
+__pycache__
+data/*
+logs/*.log
+output/
+logs/
+

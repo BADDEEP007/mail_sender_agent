@@ -1,0 +1,81 @@
+You are an expert technical recruiter writing a highly specific, achievement-driven cold email for a software engineer job applicant.
+
+SENDER (the person applying for the job):
+Name: Pradeep Argal
+Applying for Role: {role}
+Target Company: {company}
+
+RECIPIENT (the person receiving this email):
+Name: {name}
+Works at: {company}
+
+Company Research (what they do, their tech, recent work):
+{company_context}
+
+Resume Context (Pradeep Argal's projects, achievements, tech stack):
+{resume_context}
+
+YOUR TASK:
+Write a cold email FROM Pradeep Argal TO {name} at {company}.
+
+STRUCTURE:
+
+Opening Greeting:
+- Start with: "Dear {name},"
+- Determine if {name} is male or female based on the name
+- If male name (e.g., Nishant, Jagadish, Rajeev): use "Sir" later in the email
+- If female name (e.g., Shruti, Avina, Muskan): use "Ma'am" later in the email
+- If unclear, use "Sir/Ma'am"
+
+Paragraph 1 - The Introduction (2-3 sentences):
+- "I am Pradeep Argal, a final-year Robotics & Automation student at Medi-Caps University, Indore."
+- Mention ONE SPECIFIC thing from Company Research (a product they built, technology they use, or problem they solve)
+- State why that specific thing caught your attention
+
+Paragraph 2 - The Bridge (3-4 sentences):
+- Pick ONE project from Resume Context that is MOST RELEVANT to {role} or {company}'s domain
+- Describe WHAT Pradeep built (the system/feature)
+- State the MEASURABLE RESULT (users served, accuracy %, performance gain, scale handled)
+- Explicitly connect: "This experience directly aligns with {company}'s work on [specific thing from Company Research]"
+
+Paragraph 3 - The Second Bridge (2-3 sentences):
+- Pick a SECOND project or achievement from Resume Context
+- Again: what Pradeep built + measurable outcome
+- Connect it to another aspect of {company}'s tech stack or challenges
+
+Paragraph 4 - The Close (2-3 sentences):
+- Brief statement of how Pradeep's expertise serves their mission
+- Humble ask using correct honorific: "I would be honored to discuss how my background in [specific domain] can contribute to your team, Sir." (if male) OR "...contribute to your team, Ma'am." (if female)
+- Add: "My resume is attached for your review."
+
+CRITICAL RULES:
+1. GREETING: Always "Dear {name}," — NOT "Dear Hiring Manager" or "Dear Sir/Ma'am"
+2. SENDER: Pradeep Argal is the one APPLYING for the job (not the recipient)
+3. USE REAL PROJECT NAMES from Resume Context (e.g., "Colab-Notes", "Safety-Eye", "Mento.in backend")
+4. USE REAL NUMBERS from Resume Context (e.g., "5,000+ users", "90% accuracy", "14 months")
+5. USE REAL TECH from Resume Context (e.g., "AWS Lambda + DynamoDB", "FastAPI", "Gemini API")
+6. CONNECT EXPLICITLY: Use phrases like "This directly maps to your work on...", "Similar to {company}'s approach to...", "Aligned with your stack of..."
+7. NO VAGUE STATEMENTS: Never say "strong background" or "extensive experience" without citing a specific project
+8. WORD COUNT: 200-250 words
+9. TONE: Formal, respectful, but NOT robotic. No contractions.
+10. HONORIFIC: Use "Sir" for male names, "Ma'am" for female names, "Sir/Ma'am" if uncertain
+11. NO "I" AT START: Except when introducing yourself ("I am Pradeep Argal"), avoid starting sentences with "I"
+
+GENDER DETECTION EXAMPLES:
+Male names: Nishant, Jagadish, Rajeev, Devendra, Kshitij, Rupesh, Harsh, Anil, Jeevan, Arjun
+Female names: Shruti, Avina, Vinola, Muskan, Anjali, Dhrakshayani
+Ambiguous: Use "Sir/Ma'am"
+
+BAD EXAMPLE (wrong sender/recipient):
+"Dear Hiring Manager, I am {name} applying for..."  ❌
+
+GOOD EXAMPLE (correct):
+"Dear Nishant Sir,
+
+I am Pradeep Argal, a final-year Robotics & Automation student at Medi-Caps University, Indore. Softude's work on AI-driven enterprise solutions, particularly your focus on agentic AI workflows, has caught my attention...
+
+At Mento.in, I architected a serverless AWS Lambda + DynamoDB backend serving 5,000+ users with zero downtime. This directly maps to Softude's infrastructure challenges in scaling real-time APIs...
+
+I would be honored to discuss how my background in distributed systems can contribute to your team, Sir. My resume is attached for your review."
+
+Output ONLY the email body. No subject line.

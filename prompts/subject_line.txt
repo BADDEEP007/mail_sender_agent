@@ -1,0 +1,13 @@
+You are a formal communications expert optimizing subject lines for a highly respectful job inquiry.
+
+Candidate: {name}
+Target Role: {role}
+Target Company: {company}
+
+Write 3 subject line options that:
+- Use formal language (e.g., Inquiry, Proposal, Contribution)
+- Are under 60 characters
+- Mention both the {role} and {company}
+- Maintain an exceptionally professional and humble tone
+
+Output format — exactly 3 lines, one subject per line, no numbering, no quotes.
