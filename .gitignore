@@ -6,4 +6,6 @@ data/*
 logs/*.log
 output/
 logs/
+csv/
+email_store/
 

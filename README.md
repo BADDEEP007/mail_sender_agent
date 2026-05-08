@@ -2,12 +2,30 @@
 
 A complete walkthrough of every module, every function, and how they connect.
 
+## 🆕 New Features
+
+### Email Validation System
+- **Format validation**: Checks email syntax using regex
+- **Domain validation**: Verifies MX records exist for the domain
+- **SMTP validation**: Tests if the email address can receive messages
+- **Batch processing**: Validates multiple emails concurrently
+- **CSV cleaning**: Removes invalid emails and creates cleaned CSV files
+- **Integration**: Works seamlessly with the existing outreach pipeline
+
+### Redundant Code Cleanup
+- Removed duplicate functions in `pipeline.py`
+- Added tools to identify and clean up duplicate CSV files
+- Streamlined codebase for better maintainability
+
 ---
 
 ## Big Picture — How It All Flows
 
 ```
 You run main.py
+      │
+      ▼
+Email Validation (optional) ←── validates emails before processing
       │
       ▼
 pipeline.py  ←── the brain, calls everything else
@@ -24,6 +42,82 @@ pipeline.py  ←── the brain, calls everything else
 Supporting files that everything depends on:
 - `config.py` — all settings and env vars in one place
 - `logger.py` — writes logs to console and a file in `logs/`
+- `email_validator.py` — validates email addresses and cleans CSV files
+- `cleanup_redundant_files.py` — removes duplicate CSV files
+
+---
+
+## Email Validation System
+
+### Overview
+The email validation system ensures you only send emails to valid, deliverable addresses. This improves delivery rates, protects sender reputation, and saves time and costs.
+
+### Features
+- **Multi-level validation**: Format → Domain → SMTP verification
+- **Batch processing**: Validate thousands of emails concurrently
+- **CSV integration**: Automatically clean CSV files
+- **Detailed reporting**: See exactly why emails were rejected
+- **Performance optimized**: Configurable timeouts and thread pools
+
+### Usage
+
+#### Validate Single CSV File
+```bash
+# Basic validation (format + domain)
+python validate_emails.py --csv csv/hr1.csv
+
+# Full validation including SMTP check
+python validate_emails.py --csv csv/hr1.csv
+
+# Skip SMTP for faster validation
+python validate_emails.py --csv csv/hr1.csv --no-smtp
+```
+
+#### Validate All CSV Files
+```bash
+# Validate all CSV files in directory
+python validate_emails.py --directory csv
+
+# With custom settings
+python validate_emails.py --directory csv --max-workers 10 --timeout 15
+```
+
+#### Integration with Outreach Pipeline
+```bash
+# Validate emails during pipeline execution
+python main.py --csv csv/hr1.csv --validate-emails --generate-review
+
+# Use pre-validated CSV
+python main.py --csv csv/hr1_cleaned.csv --generate-review
+```
+
+### Validation Levels
+
+1. **Format Validation**: Checks email syntax using regex
+   - Valid: `user@domain.com`, `user.name+tag@example.co.uk`
+   - Invalid: `user@`, `@domain.com`, `user space@domain.com`
+
+2. **Domain Validation**: Verifies MX records exist
+   - Checks if the domain can receive emails
+   - Rejects domains without mail servers
+
+3. **SMTP Validation**: Tests actual deliverability
+   - Connects to mail server
+   - Verifies the specific email address exists
+   - Most accurate but slower
+
+### Output Files
+
+When validating `contacts.csv`, the system creates:
+- `contacts_cleaned.csv` — Only valid emails
+- `contacts_invalid.csv` — Rejected emails with reasons
+
+### Performance Tips
+
+- Use `--no-smtp` for faster validation when processing large files
+- Adjust `--max-workers` based on your network capacity
+- Set appropriate `--timeout` for network conditions
+- Validate during off-peak hours for better SMTP response rates
 
 ---
 
